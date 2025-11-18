@@ -1,7 +1,18 @@
 # ros2_yolov5_depth_detection
 A ROS 2 Humble project for real-time object detection using YOLOv5 and depth estimation using Intel RealSense D435i.
 
-This project uses Intel RealSense D435i camera to detect the name of various objcets and their distance / depth from the camera sensor. It has predefined classes for the objcets and has scope to focus on just any object for example if only person or just the vehicle has to be detected and could give the distance of the required object. 
+This project implements a real-time object detection and distance-measurement system using the Intel RealSense D435i depth camera. It integrates RGB image processing with depth sensing to identify predefined object classes and calculate their distance from the camera with high accuracy.
+
+The system uses a trained object-detection model to recognize various object categories (e.g., people, vehicles, everyday items) and leverages the D435i’s depth stream to determine how far each detected object is from the sensor. In addition to general detection, the application includes a filtering feature that allows users to focus on specific object types—such as detecting only persons or only vehicles—reducing unnecessary processing and enabling targeted monitoring.
+
+##Key functionalities include:
+	•	Real-time object detection using the D435i RGB camera.
+	•	Accurate depth measurement for each detected object using the camera’s built-in depth sensor.
+	•	Configurable object-class filtering, enabling focused detection on selected categories.
+	•	Visualization of detected objects, with labels and distance values overlaid on the video stream.
+	•	Potential applications in robotics, surveillance, autonomous navigation, and smart-safety systems.
+
+This project demonstrates strong skills in computer vision, sensor integration, and real-time data processing
 
 ## The node subscribes to:
 - camera/camera/color/image_raw
