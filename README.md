@@ -1,9 +1,11 @@
-# ros2-yolov5-depth-detection
-A ROS 2 Humble project for real-time object detection using YOLOv5 and depth estimation using Intel RealSense D455.
+# ros2_yolov5_depth_detection
+A ROS 2 Humble project for real-time object detection using YOLOv5 and depth estimation using Intel RealSense D435i.
+
+This project uses Intel RealSense D435i camera to detect the name of various objcets and their distance / depth from the camera sensor. It has predefined classes for the objcets and has scope to focus on just any object for example if only person or just the vehicle has to be detected and could give the distance of the required object. 
 
 ## The node subscribes to:
-- /camera/color/image_raw
-- /camera/depth/image_rect_raw
+- camera/camera/color/image_raw
+- camera/camera/depth/image_rect_raw
 
 ## And Publishes:
 - Bounding boxes + Labels(OpenCV window)
@@ -11,12 +13,12 @@ A ROS 2 Humble project for real-time object detection using YOLOv5 and depth est
     contains class name + distance in meters
 
 ## Features
-✔ Real-time YOLOv5 detection
-✔ Depth estimation using RealSense
-✔ ROS 2 Humble Node
-✔ Custom message: ObjectInfo.msg
-✔ Publishes class name + distance
-✔ Easy to extend for robotics / navigation projects
+✔ Real-time YOLOv5 detection.
+✔ Depth estimation using RealSense.
+✔ ROS 2 Humble Node.
+✔ Custom message: ObjectInfo.msg .
+✔ Publishes class name + distance.
+✔ Easy to extend for robotics / navigation projects.
 
 
 ## Installation 
@@ -24,7 +26,7 @@ A ROS 2 Humble project for real-time object detection using YOLOv5 and depth est
 1. Clone the repository
     ```bash
     cd ~/ros2_ws/src
-    git clone https://github.com/R91Shivam/ros2-yolov5-depth-detection.git
+    git clone https://github.com/R91Shivam/ros2_yolov5_depth_detection.git
     ```
    
 3. Install Python dependencies
@@ -36,18 +38,19 @@ A ROS 2 Humble project for real-time object detection using YOLOv5 and depth est
 5. Build the ROS 2 package
    ```bash
    cd ~/ros2_ws
-   colcon build --packages-select yolov5_depth_node
+   colcon build
    source install/setup.bash
     ```
 
 ## Run the Node
 1. Make sure RealSense is running (realsense2_camera):
 
-       ros2 launch realsense2_camera rs_launch.py align_depth:=true
+       ros2 run realsense2_camera realsense2_camera_node 
 
 3. Then run:
 
-       ros2 run yolov5_depth_node depth_node
+       ros2 run yolov5_realsense yolov5_depth_node 
+
 
 5. Echo the published info:
 
